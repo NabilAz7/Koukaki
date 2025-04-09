@@ -1,0 +1,320 @@
+@charset "UTF-8";
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+.Oscars-nomination-containers-flex {
+  display: flex;
+  justify-content: center !important;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 100px;
+  gap: 0px;
+  position: relative;
+}
+.Oscars-nomination-containers-flex .item1 {
+  width: 70%;
+}
+.Oscars-nomination-containers-flex .item2 {
+  width: 30%;
+}
+.Oscars-nomination-containers-flex .text-oscar-nomination {
+  color: white !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+  margin-left: 60px;
+}
+.Oscars-nomination-containers-flex .text-bulle-orange {
+  margin-left: 55px;
+}
+.Oscars-nomination-containers-flex .image-container {
+  position: relative;
+  width: 70%;
+}
+.Oscars-nomination-containers-flex .img-oscars-short-film {
+  width: 90%;
+  height: 360px;
+}
+.Oscars-nomination-containers-flex .overlay-text {
+  position: absolute;
+  top: 32%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#section-banner,
+.story,
+.story #characters,
+#place,
+#studio,
+#Oscars-nomination,
+#colophon,
+video {
+  opacity: 0;
+  transform: translateX(100%);
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.banner-container {
+  animation: slideInLeft 1s forwards;
+}
+
+#section-banner,
+video {
+  animation: slideInLeft 1s forwards;
+}
+
+.story {
+  animation: slideInRight 1s forwards;
+  animation-delay: 2s;
+}
+
+.story #characters {
+  animation: slideInLeft 1s forwards;
+  animation-delay: 3s;
+}
+
+#place {
+  animation: slideInRight 1s forwards;
+  animation-delay: 4s;
+}
+
+#studio {
+  animation: slideInLeft 1s forwards;
+  animation-delay: 5s;
+}
+
+#Oscars-nomination {
+  animation: slideInRight 1s forwards;
+  animation-delay: 6s;
+}
+
+#colophon {
+  animation: slideInLeft 1s forwards;
+  animation-delay: 7s;
+}
+
+.banner-container {
+  opacity: 0;
+  transform: translateX(100%);
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  width: 100%;
+  text-align: center;
+}
+
+.titre-koukaki {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-150px);
+  font-size: 40px !important;
+  opacity: 0;
+  animation: slideUp 2s ease-out forwards;
+  animation-delay: 5s;
+  margin-top: 55px;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateX(-50%) translateY(-150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+.container-titre-koukaki {
+  position: relative;
+  height: 210px;
+  margin-bottom: 50px;
+}
+
+#studio h2::before {
+  margin-left: 60px;
+  margin-bottom: 15px;
+}
+
+div::before {
+  margin-top: 30px;
+}
+
+.story__article::after,
+.story h2::after,
+#studio h2::before,
+#flower-white,
+.site-footer::after,
+.site-footer ul::after,
+#studio h2::after,
+.img-fleur-blanche,
+.img-fleur-violette {
+  animation: rotateAnimation 4s linear infinite;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.img-fleur-blanche,
+.img-fleur-violette {
+  position: absolute;
+  top: 0;
+}
+
+.img-fleur-violette {
+  transform: translateX(-40px);
+}
+
+#studio h2::after {
+  right: -15em;
+}
+
+.site-footer {
+  padding-top: 200px !important;
+}
+.site-footer::before, .site-footer::after {
+  display: none;
+}
+
+/* Conteneur principal pour la vidéo et le logo */
+.banner-container {
+  position: relative; /* Permet de positionner les éléments enfants par rapport à ce conteneur */
+  min-width: 700px; /* Largeur à 100% */
+  height: 100vh; /* Hauteur à 100% de la fenêtre (ou ajuster selon besoin) */
+  width: 100%;
+}
+
+section.banner-video * {
+  box-sizing: content-box;
+  padding-left: 0px !important;
+}
+
+/* Vidéo */
+.banner-video {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Pour s'assurer que la vidéo s'ajuste correctement */
+  transform: translate(0px, -40px);
+}
+
+.banner-video__background {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover; /* Cela permet à la vidéo de remplir tout l'espace sans être déformée */
+}
+
+/* Logo */
+.banner__logo {
+  position: absolute; /* Positionner le logo par rapport au conteneur parent */
+  top: 40%; /* Position verticale centrée */
+  left: 50%; /* Position horizontale centrée */
+  transform: translate(-50%, -50%); /* Ajuste le logo pour qu'il soit exactement centré */
+  z-index: 10; /* S'assurer que le logo se trouve par-dessus la vidéo */
+  max-width: 650px; /* Taille du logo (ajuste selon tes besoins) */
+  height: auto; /* Garde la proportion du logo */
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 110px;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+swiper-slide img {
+  display: block;
+  width: 90%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+swiper-slide:nth-child(2n), swiper-slide:nth-child(3n) {
+  width: 100%;
+}
+
+.first-slide-title {
+  margin-top: 40px;
+}
+
+.titre-characters {
+  flex: 0 0 10%;
+}
+
+.mySwiper {
+  flex: 0 0 90%;
+}
+
+.story h2::before,
+.story h2::after {
+  display: none;
+}
+
+section.titre-characters {
+  transform: translate(300px, 40px);
+  width: 100% !important;
+}
+
+#specific-h2 {
+  color: white;
+  font-size: 40px;
+  background-image: url(./medias/nuageorange.png) !important;
+  padding: 20px !important;
+  background-repeat: no-repeat; /* Empêche l'image de se répéter */
+  background-position: center; /* Positionne l'image au centre du titre */
+  background-size: cover; /* L'image couvre tout le fond du titre */
+}
+
+h2#specific-h2 {
+  width: -moz-max-content;
+  width: max-content;
+}/*# sourceMappingURL=style.css.map */
