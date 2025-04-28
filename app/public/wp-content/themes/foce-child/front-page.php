@@ -20,7 +20,7 @@ get_header();
     </section>
 
     <section id="#story" class="story">
-        <h2>L'histoire</h2>
+        <h2 id="tigeflower">L'histoire</h2>
         <article id="" class="story__article">
             <p><?php echo get_theme_mod('story'); ?></p>
         </article>
@@ -36,8 +36,8 @@ get_header();
         $characters_query = new WP_Query($args);
         ?>
 
-        <article id="characters">
-            <section class="titre-characters">
+        <article id="characters" class="article_characters">
+            <section class="article_characters__titre">
                 <h2 id="specific-h2"> Les personnages </h2>
             </section>
 
@@ -96,10 +96,18 @@ get_header();
         </script>
 
         <article id="place">
-            <div>
-                <h3>Le Lieu</h3>
-                <p><?php echo get_theme_mod('place'); ?></p>
+            <div class="parallax-container">
+                <!-- Nuages -->
+                <div class="cloud cloud__top"></div>
+                <div class="cloud cloud__bottom"></div>
+
+                <div class="content">
+                    <h3>Le Lieu</h3>
+                    <p><?php echo get_theme_mod('place'); ?></p>
+                </div>
             </div>
+        </article>
+
 
         </article>
     </section> <!-- Fermeture de la balise <section> -->
@@ -107,7 +115,7 @@ get_header();
     <section id="studio">
 
 
-        <h2 class="container-titre-koukaki"><span class="titre-koukaki">Studio Koukaki</span></h2>
+        <h2 class="container-koukaki_titre"><span class="koukaki__titre">Studio Koukaki</span></h2>
 
 
 

@@ -102,3 +102,31 @@ function foce_child_enqueue_parent_scripts()
 // Ajouter l'action pour charger les scripts
 add_action('wp_enqueue_scripts', 'foce_child_enqueue_parent_scripts');
 ?>
+
+<?php
+// Fonction pour enregistrer les menus
+function theme_enfant_scripts()
+{
+    // Enqueue le fichier JS
+    wp_enqueue_script('menu.js', get_stylesheet_directory_uri() . '/js-child/menu.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'theme_enfant_scripts');
+
+// FONT AWESOME
+
+function foce_enqueue_assets()
+{
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+    wp_enqueue_style('foce-style', get_stylesheet_uri());
+    wp_enqueue_script('foce-menu', get_template_directory_uri() . '/js/menu.js', array(), false, true);
+}
+add_action('wp_enqueue_scripts', 'foce_enqueue_assets');
+
+
+function foce_register_menus()
+{
+    register_nav_menus(array(
+        'primary' => __('Menu principal', 'foce'),
+    ));
+}
+add_action('after_setup_theme', 'foce_register_menus');

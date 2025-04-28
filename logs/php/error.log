@@ -33,3 +33,5 @@ Stack trace:
 #2 C:\Users\nabil\Local Sites\mycustomiwp1\app\public\index.php(17): require('C:\\Users\\nabil\\...')
 #3 {main}
   thrown in C:\Users\nabil\Local Sites\mycustomiwp1\app\public\wp-content\themes\foce-child\front-page.php on line 29
+[09-Apr-2025 11:46:06 UTC] PHP Parse error:  syntax error, unexpected token ";" in C:\Users\nabil\Local Sites\mycustomiwp1\app\public\wp-content\themes\foce-child\front-page.php on line 103
+[09-Apr-2025 11:46:32 UTC] PHP Parse error:  syntax error, unexpected token ";" in C:\Users\nabil\Local Sites\mycustomiwp1\app\public\wp-content\themes\foce-child\front-page.php on line 103

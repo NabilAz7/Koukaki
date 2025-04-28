@@ -8,45 +8,10 @@
  Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
  Version: 0.1
  */
-.Oscars-nomination-containers-flex {
-  display: flex;
-  justify-content: center !important;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 100px;
-  gap: 0px;
-  position: relative;
-}
-.Oscars-nomination-containers-flex .item1 {
-  width: 70%;
-}
-.Oscars-nomination-containers-flex .item2 {
-  width: 30%;
-}
-.Oscars-nomination-containers-flex .text-oscar-nomination {
-  color: white !important;
-  font-size: 28px !important;
-  font-weight: bold !important;
-  margin-left: 60px;
-}
-.Oscars-nomination-containers-flex .text-bulle-orange {
-  margin-left: 55px;
-}
-.Oscars-nomination-containers-flex .image-container {
-  position: relative;
-  width: 70%;
-}
-.Oscars-nomination-containers-flex .img-oscars-short-film {
-  width: 90%;
-  height: 360px;
-}
-.Oscars-nomination-containers-flex .overlay-text {
-  position: absolute;
-  top: 32%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 1;
+/* RESET */
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -54,102 +19,70 @@ body {
   padding: 0;
 }
 
-#section-banner,
+.banner-container {
+  opacity: 0;
+  transform: translateY(-120px);
+  animation: fadeInDown 3s ease-out forwards;
+}
+
 .story,
 .story #characters,
 #place,
 #studio,
 #Oscars-nomination,
-#colophon,
-video {
-  opacity: 0;
-  transform: translateX(100%);
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  margin: 20px auto;
-  padding: 20px;
-  width: 100%;
-  text-align: center;
-}
-
-@keyframes slideInLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes slideInRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-.banner-container {
-  animation: slideInLeft 1s forwards;
-}
-
-#section-banner,
-video {
-  animation: slideInLeft 1s forwards;
-}
-
-.story {
-  animation: slideInRight 1s forwards;
-  animation-delay: 2s;
-}
-
-.story #characters {
-  animation: slideInLeft 1s forwards;
-  animation-delay: 3s;
-}
-
-#place {
-  animation: slideInRight 1s forwards;
-  animation-delay: 4s;
-}
-
-#studio {
-  animation: slideInLeft 1s forwards;
-  animation-delay: 5s;
-}
-
-#Oscars-nomination {
-  animation: slideInRight 1s forwards;
-  animation-delay: 6s;
-}
-
 #colophon {
-  animation: slideInLeft 1s forwards;
-  animation-delay: 7s;
-}
-
-.banner-container {
   opacity: 0;
-  transform: translateX(100%);
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  transform: translateY(120px);
+  animation: fadeInUp 3s ease-out forwards;
   width: 100%;
   text-align: center;
+  margin: 20px auto;
 }
 
-.titre-koukaki {
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+img.banner__logo.floating {
+  animation: fadeInUp 3s ease-out forwards, floating 3s ease-in-out infinite;
+  animation-delay: 0s, 3s;
+  animation-fill-mode: forwards, none;
+}
+
+.koukaki__titre {
   position: absolute;
-  top: 10px;
+  top: 80px;
   left: 50%;
-  transform: translateX(-50%) translateY(-150px);
   font-size: 40px !important;
   opacity: 0;
   animation: slideUp 2s ease-out forwards;
-  animation-delay: 5s;
-  margin-top: 55px;
 }
 
 @keyframes slideUp {
@@ -162,7 +95,7 @@ video {
     opacity: 1;
   }
 }
-.container-titre-koukaki {
+.container-koukaki_titre {
   position: relative;
   height: 210px;
   margin-bottom: 50px;
@@ -177,6 +110,8 @@ div::before {
   margin-top: 30px;
 }
 
+.text-oscar-nomination::after,
+.text-oscar-nomination::before,
 .story__article::after,
 .story h2::after,
 #studio h2::before,
@@ -208,7 +143,7 @@ div::before {
 }
 
 #studio h2::after {
-  right: -15em;
+  right: 0%;
 }
 
 .site-footer {
@@ -249,12 +184,41 @@ section.banner-video * {
 /* Logo */
 .banner__logo {
   position: absolute; /* Positionner le logo par rapport au conteneur parent */
-  top: 40%; /* Position verticale centrée */
-  left: 50%; /* Position horizontale centrée */
+  top: 15%; /* Position verticale centrée */
+  left: 28%; /* Position horizontale centrée */
   transform: translate(-50%, -50%); /* Ajuste le logo pour qu'il soit exactement centré */
   z-index: 10; /* S'assurer que le logo se trouve par-dessus la vidéo */
   max-width: 650px; /* Taille du logo (ajuste selon tes besoins) */
   height: auto; /* Garde la proportion du logo */
+  display: inline-block;
+  animation: float-circle 4s linear infinite;
+}
+
+@keyframes float-circle {
+  0% {
+    transform: rotate(0deg) translateX(10px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(10px) rotate(-360deg);
+  }
+}
+#tigeflower::before {
+  content: url("./medias/sunflower_leaves.png");
+  position: absolute;
+  left: 0;
+  top: 1.8em;
+  z-index: -1;
+}
+
+#tigeflower::after {
+  content: url("./medias/Sunflower.png");
+  position: absolute;
+  left: 0.7em;
+  top: 6em;
+}
+
+h2#specific-h2::after {
+  display: none;
 }
 
 swiper-container {
@@ -286,29 +250,18 @@ swiper-slide:nth-child(2n), swiper-slide:nth-child(3n) {
   margin-top: 40px;
 }
 
-.titre-characters {
-  flex: 0 0 10%;
+.story #characters {
+  display: inline-block !important;
 }
 
-.mySwiper {
-  flex: 0 0 90%;
-}
-
-.story h2::before,
-.story h2::after {
-  display: none;
-}
-
-section.titre-characters {
-  transform: translate(300px, 40px);
-  width: 100% !important;
+section.article_characters__titre {
+  transform: translate(20px, 40px);
 }
 
 #specific-h2 {
   color: white;
   font-size: 40px;
   background-image: url(./medias/nuageorange.png) !important;
-  padding: 20px !important;
   background-repeat: no-repeat; /* Empêche l'image de se répéter */
   background-position: center; /* Positionne l'image au centre du titre */
   background-size: cover; /* L'image couvre tout le fond du titre */
@@ -317,4 +270,339 @@ section.titre-characters {
 h2#specific-h2 {
   width: -moz-max-content;
   width: max-content;
+  margin-top: 30px;
+}
+
+#place {
+  position: relative;
+  height: 100vh; /* Ajuste selon tes besoins */
+  overflow: hidden;
+  background-image: url(./medias/section-lieu-background.png) !important;
+}
+
+.parallax-container {
+  position: relative;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+.parallax-container .cloud {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.1s ease-out;
+  z-index: 2;
+}
+.parallax-container .cloud__top {
+  top: 20%; /* Positionne le gros nuage plus haut */
+  right: -1100px;
+  background-image: url("./medias/big_cloud.png"); /* L'image du gros nuage */
+  z-index: 2; /* Assure-toi que le gros nuage est au-dessus du petit nuage */
+  height: 250px; /* Ajuste la taille des nuages */
+  width: 250px; /* Ajuste la taille des nuages */
+}
+.parallax-container .cloud__bottom {
+  top: 35%; /* Positionne le petit nuage un peu plus bas que le gros nuage */
+  right: -1200px;
+  background-image: url("./medias/little_cloud.png"); /* L'image du petit nuage */
+  z-index: 2; /* Le petit nuage est en dessous du gros nuage */
+  height: 200px; /* Ajuste la taille des nuages */
+  width: 130px; /* Ajuste la taille des nuages */
+}
+
+.content {
+  position: relative;
+  z-index: 10; /* Texte au-dessus des nuages */
+  text-align: center;
+  padding: 50px;
+}
+
+.Oscars-nomination-containers-flex {
+  display: flex;
+  justify-content: center !important;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 100px;
+  gap: 0px;
+  position: relative;
+}
+.Oscars-nomination-containers-flex .item1 {
+  width: 70%;
+}
+.Oscars-nomination-containers-flex .item2 {
+  width: 30%;
+}
+.Oscars-nomination-containers-flex .text-oscar-nomination {
+  position: relative;
+  color: white !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+  margin-left: 60px;
+}
+.Oscars-nomination-containers-flex .text-oscar-nomination::before {
+  content: url(./medias/Sunflower.png);
+  position: absolute;
+  left: -7em;
+  top: -4em;
+  z-index: -1;
+}
+.Oscars-nomination-containers-flex .text-oscar-nomination::after {
+  content: url(./medias/orchid.png);
+  position: absolute;
+  right: -28em;
+  top: -6em;
+  z-index: -1;
+}
+.Oscars-nomination-containers-flex .text-bulle-orange {
+  margin-left: 55px;
+}
+.Oscars-nomination-containers-flex .image-container {
+  position: relative;
+  width: 70%;
+}
+.Oscars-nomination-containers-flex .img-oscars-short-film {
+  width: 90%;
+  height: 360px;
+}
+.Oscars-nomination-containers-flex .overlay-text {
+  position: absolute;
+  top: 32%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+.Oscars-nomination-containers-flex .img-fleur-blanche {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
+#special-h2 {
+  background-color: transparent !important; /* désactive toute couleur */
+  background-image: url("medias/bulle-orange.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  border: none;
+  display: inline-block;
+  top: 6em;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.item-left {
+  flex: 1; /* prend autant de place que le menu-toggle pour équilibrer */
+}
+
+.menu-toggle {
+  flex: 1;
+  text-align: right;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+}
+
+.titre-header {
+  flex: 2;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* ===== BOUTON BURGER (icône) ===== */
+.menu-toggle {
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+  position: static; /* ou static */
+  z-index: 1001;
+  background: transparent;
+  border: none;
+  display: block;
+}
+
+.menu-toggle i {
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+
+/* ===== MENU FULLSCREEN ===== */
+.main-navigation2 {
+  z-index: 1000;
+  background-color: #ffd5a2;
+  display: block;
+  width: 100%;
+  position: fixed !important;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+/* ===== MENU VISIBLE APRÈS CLIC ===== */
+.menu.menu-active {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* ===== STYLES DES LIENS DU MENU ===== */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  list-style: none;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.menu-principal li a {
+  font-size: 50px;
+  color: black;
+  text-decoration: none;
+}
+
+.menu-principal li a:hover {
+  color: black;
+  text-shadow: 0 0 3px #ff5c00;
+}
+
+.menu-active {
+  background-color: #fff5e9;
+}
+
+.menu .decor {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menu .decor-1 {
+  background-image: url("./medias/Imagelogo.png");
+  width: 200px;
+  height: 160px;
+  top: 12%;
+  left: 45%;
+}
+
+.menu .decor-2 {
+  background-image: url("./medias/cat.png");
+  width: 120px;
+  height: 120px;
+  top: 25%;
+  left: 23%;
+  animation: float-circle 4s linear infinite;
+}
+
+.menu .decor-3 {
+  background-image: url("./medias/Sunflower.png");
+  width: 200px;
+  height: 200px;
+  top: 16%;
+  right: 20%;
+  animation: rotateAnimation 4s linear infinite;
+}
+
+.menu .decor-4 {
+  background-image: url("./medias/orchid.png");
+  width: 172px;
+  height: 168px;
+  top: 15%;
+  left: -5%;
+  animation: rotateAnimation 4s linear infinite;
+}
+
+.menu .decor-5 {
+  background-image: url("./medias/cat(2).png");
+  width: 110px;
+  height: 110px;
+  bottom: 38%;
+  right: 21%;
+  animation: float-circle 4s linear infinite;
+}
+
+.menu .decor-6 {
+  background-image: url("./medias/cat (1).png");
+  width: 100px;
+  height: 100px;
+  bottom: 15%;
+  left: 10%;
+  animation: float-circle 4s linear infinite;
+}
+
+.menu .decor-7 {
+  background-image: url("./medias/hibiscus_footer.png");
+  width: 600px;
+  height: 600px;
+  bottom: -42%;
+  right: -15%;
+  animation: rotateAnimation 4s linear infinite;
+}
+
+.menu .decor-8 {
+  background-image: url("./medias/random_flower.png");
+  width: 70px;
+  height: 70px;
+  top: 44%;
+  right: -1%;
+  animation: rotateAnimation 4s linear infinite;
+}
+
+.menu .decor-9 {
+  background-image: url("./medias/flower.png");
+  width: 80px;
+  height: 80px;
+  top: 46%;
+  left: 12%;
+  animation: rotateAnimation 4s linear infinite;
+}
+
+.menu .decor-10 {
+  width: 126px;
+  height: 126px;
+  bottom: -10%;
+  right: 43%;
+}
+
+@keyframes float-circle {
+  0% {
+    transform: rotate(0deg) translateX(10px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(10px) rotate(-360deg);
+  }
+}
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=style.css.map */
