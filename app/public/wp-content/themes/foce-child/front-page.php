@@ -20,7 +20,7 @@ get_header();
     </section>
 
     <section id="#story" class="story">
-        <h2 id="tigeflower">L'histoire</h2>
+        <h2 id="tigeflower"><span class="story__title">L'histoire</span></h2>
         <article id="" class="story__article">
             <p><?php echo get_theme_mod('story'); ?></p>
         </article>

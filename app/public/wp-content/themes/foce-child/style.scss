@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
  Theme URI: https://www.koukaki.local
@@ -7,9 +8,7 @@
  Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
  Version: 0.1
  */
-
 /* RESET */
-
 html,
 body {
   overflow-x: hidden;
@@ -19,7 +18,6 @@ body {
   margin: 0;
   padding: 0;
 }
-// /* === ANIMATIONS === */
 
 .banner-container {
   opacity: 0;
@@ -51,7 +49,6 @@ body {
     opacity: 1;
   }
 }
-
 @keyframes fadeInUp {
   0% {
     transform: translateY(120px);
@@ -62,7 +59,6 @@ body {
     opacity: 1;
   }
 }
-
 @keyframes floating {
   0% {
     transform: translateY(0);
@@ -74,32 +70,23 @@ body {
     transform: translateY(0);
   }
 }
-
 img.banner__logo.floating {
   animation: fadeInUp 3s ease-out forwards, floating 3s ease-in-out infinite;
   animation-delay: 0s, 3s;
   animation-fill-mode: forwards, none;
 }
 
-// Animation du titre "STUDIO KOUKAKI"
 .koukaki__titre {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  font-size: 40px !important;
+  display: inline-block;
   opacity: 0;
-  animation: slideUp 2s ease-out forwards;
+  transform: translateY(-45px);
+  transition: opacity 3s ease-out, transform 1s ease-out;
+  transition-delay: 0.6s;
 }
 
-@keyframes slideUp {
-  0% {
-    transform: translateX(-50%) translateY(-150px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
+.koukaki__titre.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .container-koukaki_titre {
@@ -117,7 +104,6 @@ div::before {
   margin-top: 30px;
 }
 
-// Animation des fleurs qui tournent sur elles-mêmes
 .text-oscar-nomination::after,
 .text-oscar-nomination::before,
 .story__article::after,
@@ -140,8 +126,6 @@ div::before {
     transform: rotate(360deg);
   }
 }
-
-// Section Fleur Blanche et Violette
 .img-fleur-blanche,
 .img-fleur-violette {
   position: absolute;
@@ -156,17 +140,13 @@ div::before {
   right: 0%;
 }
 
-// Section footer
 .site-footer {
   padding-top: 200px !important;
-
-  &::before,
-  &::after {
-    display: none;
-  }
 }
-
-// SECTION HEROS BANNER
+.site-footer::before,
+.site-footer::after {
+  display: none;
+}
 
 /* Conteneur principal pour la vidéo et le logo */
 .banner-container {
@@ -175,10 +155,12 @@ div::before {
   height: 100vh; /* Hauteur à 100% de la fenêtre (ou ajuster selon besoin) */
   width: 100%;
 }
+
 section.banner-video * {
   box-sizing: content-box;
   padding-left: 0px !important;
 }
+
 /* Vidéo */
 .banner-video {
   width: 100%;
@@ -190,6 +172,7 @@ section.banner-video * {
 .banner-video__background {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover; /* Cela permet à la vidéo de remplir tout l'espace sans être déformée */
 }
 
@@ -217,9 +200,6 @@ section.banner-video * {
     transform: rotate(360deg) translateX(10px) rotate(-360deg);
   }
 }
-
-// Section "story" */
-
 #tigeflower::before {
   content: url('./medias/sunflower_leaves.png');
   position: absolute;
@@ -239,7 +219,6 @@ h2#specific-h2::after {
   display: none;
 }
 
-// Section slider "Personnages"
 swiper-container {
   width: 100%;
   height: 100%;
@@ -253,18 +232,17 @@ swiper-slide {
   justify-content: center;
   align-items: center;
   width: 100%;
-
-  img {
-    display: block;
-    width: 90%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  &:nth-child(2n),
-  &:nth-child(3n) {
-    width: 100%;
-  }
+}
+swiper-slide img {
+  display: block;
+  width: 90%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+swiper-slide:nth-child(2n),
+swiper-slide:nth-child(3n) {
+  width: 100%;
 }
 
 .first-slide-title {
@@ -274,8 +252,6 @@ swiper-slide {
 .story #characters {
   display: inline-block !important;
 }
-
-// Titre "Les personnages" au-dessus du slider */
 
 section.article_characters__titre {
   transform: translate(20px, 40px);
@@ -291,11 +267,11 @@ section.article_characters__titre {
 }
 
 h2#specific-h2 {
+  width: -moz-max-content;
   width: max-content;
   margin-top: 30px;
 }
 
-// EFFET DE PARALLAXE
 #place {
   position: relative;
   height: 100vh; /* Ajuste selon tes besoins */
@@ -308,32 +284,29 @@ h2#specific-h2 {
   height: 100%;
   background-size: cover;
   background-position: center center;
-
-  .cloud {
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: transform 0.1s ease-out;
-    z-index: 2;
-  }
-
-  .cloud__top {
-    top: 20%; /* Positionne le gros nuage plus haut */
-    right: -1100px;
-    background-image: url('./medias/big_cloud.png'); /* L'image du gros nuage */
-    z-index: 2; /* Assure-toi que le gros nuage est au-dessus du petit nuage */
-    height: 250px; /* Ajuste la taille des nuages */
-    width: 250px; /* Ajuste la taille des nuages */
-  }
-
-  .cloud__bottom {
-    top: 35%; /* Positionne le petit nuage un peu plus bas que le gros nuage */
-    right: -1200px;
-    background-image: url('./medias/little_cloud.png'); /* L'image du petit nuage */
-    z-index: 2; /* Le petit nuage est en dessous du gros nuage */
-    height: 200px; /* Ajuste la taille des nuages */
-    width: 130px; /* Ajuste la taille des nuages */
-  }
+}
+.parallax-container .cloud {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.1s ease-out;
+  z-index: 2;
+}
+.parallax-container .cloud__top {
+  top: 20%; /* Positionne le gros nuage plus haut */
+  right: -1100px;
+  background-image: url('./medias/big_cloud.png'); /* L'image du gros nuage */
+  z-index: 2; /* Assure-toi que le gros nuage est au-dessus du petit nuage */
+  height: 250px; /* Ajuste la taille des nuages */
+  width: 250px; /* Ajuste la taille des nuages */
+}
+.parallax-container .cloud__bottom {
+  top: 35%; /* Positionne le petit nuage un peu plus bas que le gros nuage */
+  right: -1200px;
+  background-image: url('./medias/little_cloud.png'); /* L'image du petit nuage */
+  z-index: 2; /* Le petit nuage est en dessous du gros nuage */
+  height: 200px; /* Ajuste la taille des nuages */
+  width: 130px; /* Ajuste la taille des nuages */
 }
 
 .content {
@@ -343,8 +316,6 @@ h2#specific-h2 {
   padding: 50px;
 }
 
-//  Section rajouté
-// Container pour les sections Oscars-nomination
 .Oscars-nomination-containers-flex {
   display: flex;
   justify-content: center !important;
@@ -353,67 +324,57 @@ h2#specific-h2 {
   margin-top: 100px;
   gap: 0px;
   position: relative;
-
-  .item1 {
-    width: 70%;
-  }
-
-  .item2 {
-    width: 30%;
-  }
-
-  .text-oscar-nomination {
-    position: relative; // <<< nécessaire
-    color: white !important;
-    font-size: 28px !important;
-    font-weight: bold !important;
-    margin-left: 60px;
-
-    &::before {
-      content: url(./medias/Sunflower.png);
-      position: absolute;
-      left: -7em;
-      top: -4em;
-      z-index: -1;
-    }
-
-    &::after {
-      content: url(./medias/orchid.png);
-      position: absolute;
-      right: -28em;
-      top: -6em;
-      z-index: -1;
-    }
-  }
-
-  .text-bulle-orange {
-    margin-left: 55px;
-  }
-
-  .image-container {
-    position: relative;
-    width: 70%;
-  }
-
-  .img-oscars-short-film {
-    width: 90%;
-    height: 360px;
-  }
-
-  .overlay-text {
-    position: absolute;
-    top: 32%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1;
-  }
-
-  .img-fleur-blanche {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-  }
+}
+.Oscars-nomination-containers-flex .item1 {
+  width: 70%;
+}
+.Oscars-nomination-containers-flex .item2 {
+  width: 30%;
+}
+.Oscars-nomination-containers-flex .text-oscar-nomination {
+  position: relative;
+  color: white !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+  margin-left: 60px;
+}
+.Oscars-nomination-containers-flex .text-oscar-nomination::before {
+  content: url(./medias/Sunflower.png);
+  position: absolute;
+  left: -7em;
+  top: -4em;
+  z-index: -1;
+}
+.Oscars-nomination-containers-flex .text-oscar-nomination::after {
+  content: url(./medias/orchid.png);
+  position: absolute;
+  right: -28em;
+  top: -6em;
+  z-index: -1;
+}
+.Oscars-nomination-containers-flex .text-bulle-orange {
+  margin-left: 55px;
+}
+.Oscars-nomination-containers-flex .image-container {
+  position: relative;
+  width: 70%;
+}
+.Oscars-nomination-containers-flex .img-oscars-short-film {
+  width: 90%;
+  height: 360px;
+}
+.Oscars-nomination-containers-flex .overlay-text {
+  position: absolute;
+  top: 32%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+.Oscars-nomination-containers-flex .img-fleur-blanche {
+  position: absolute;
+  top: 0%;
+  left: 0%;
 }
 
 #special-h2 {
@@ -431,10 +392,6 @@ h2#specific-h2 {
   display: inline-block;
   top: 6em;
 }
-
-// HEADER
-
-// Titre Header
 
 .container-flex {
   display: flex;
@@ -532,7 +489,6 @@ h2#specific-h2 {
   color: black;
   text-shadow: 0 0 3px #ff5c00;
 }
-// Decoration menu wrapper (ouvert)
 
 .menu-active {
   background-color: #fff5e9;
@@ -582,7 +538,7 @@ h2#specific-h2 {
 }
 
 .menu .decor-5 {
-  background-image: url('./medias/cat\(2\).png');
+  background-image: url('./medias/cat(2).png');
   width: 110px;
   height: 110px;
   bottom: 38%;
@@ -591,7 +547,7 @@ h2#specific-h2 {
 }
 
 .menu .decor-6 {
-  background-image: url('./medias/cat\ \(1\).png');
+  background-image: url('./medias/cat (1).png');
   width: 100px;
   height: 100px;
   bottom: 15%;
@@ -607,6 +563,7 @@ h2#specific-h2 {
   right: -15%;
   animation: rotateAnimation 4s linear infinite;
 }
+
 .menu .decor-8 {
   background-image: url('./medias/random_flower.png');
   width: 70px;
@@ -615,6 +572,7 @@ h2#specific-h2 {
   right: -1%;
   animation: rotateAnimation 4s linear infinite;
 }
+
 .menu .decor-9 {
   background-image: url('./medias/flower.png');
   width: 80px;
@@ -623,14 +581,13 @@ h2#specific-h2 {
   left: 12%;
   animation: rotateAnimation 4s linear infinite;
 }
+
 .menu .decor-10 {
   width: 126px;
   height: 126px;
   bottom: -10%;
   right: 43%;
 }
-
-// ANIAMTION DECORATIONS MENU WRAPPER
 
 @keyframes float-circle {
   0% {
@@ -640,7 +597,6 @@ h2#specific-h2 {
     transform: rotate(360deg) translateX(10px) rotate(-360deg);
   }
 }
-
 @keyframes rotateAnimation {
   from {
     transform: rotate(0deg);
@@ -648,4 +604,19 @@ h2#specific-h2 {
   to {
     transform: rotate(360deg);
   }
+} /*# sourceMappingURL=style.css.map */
+
+// ANIMATION TITRE "L'HISTOIRE"
+
+.story__title {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-45px);
+  transition: opacity 3s ease-out, transform 1s ease-out;
+  transition-delay: 0.6s;
+}
+
+.story__title.animate {
+  opacity: 1;
+  transform: translateY(0);
 }

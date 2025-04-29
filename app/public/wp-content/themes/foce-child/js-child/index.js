@@ -39,3 +39,50 @@ window.addEventListener('load', () => {
     });
   }
 });
+
+// Animation des h2 a chaque passage sur la section
+
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.story__title');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Ajoute la classe pour déclencher l'animation
+          title.classList.add('animate');
+        } else {
+          // Retire la classe pour réinitialiser quand le titre sort de l'écran
+          title.classList.remove('animate');
+        }
+      });
+    },
+    {
+      threshold: 0.5, // déclenche quand 50% du titre est visible
+    }
+  );
+
+  observer.observe(title);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Animation pour le titre Studio Koukaki
+  const koukakiTitle = document.querySelector('.koukaki__titre');
+
+  const koukakiObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          koukakiTitle.classList.add('animate');
+        } else {
+          koukakiTitle.classList.remove('animate');
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    }
+  );
+
+  koukakiObserver.observe(koukakiTitle);
+});

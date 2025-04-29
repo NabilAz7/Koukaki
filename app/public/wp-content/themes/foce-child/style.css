@@ -77,24 +77,18 @@ img.banner__logo.floating {
 }
 
 .koukaki__titre {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  font-size: 40px !important;
+  display: inline-block;
   opacity: 0;
-  animation: slideUp 2s ease-out forwards;
+  transform: translateY(-45px);
+  transition: opacity 3s ease-out, transform 1s ease-out;
+  transition-delay: 0.6s;
 }
 
-@keyframes slideUp {
-  0% {
-    transform: translateX(-50%) translateY(-150px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
+.koukaki__titre.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
+
 .container-koukaki_titre {
   position: relative;
   height: 210px;
@@ -149,7 +143,9 @@ div::before {
 .site-footer {
   padding-top: 200px !important;
 }
-.site-footer::before, .site-footer::after {
+
+.site-footer::before,
+.site-footer::after {
   display: none;
 }
 
@@ -178,7 +174,7 @@ section.banner-video * {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover; /* Cela permet à la vidéo de remplir tout l'espace sans être déformée */
+  object-fit: cover; /* Cela permet à la vidéo de remplir tout l'espace sans être déformée */
 }
 
 /* Logo */
@@ -235,14 +231,17 @@ swiper-slide {
   align-items: center;
   width: 100%;
 }
+
 swiper-slide img {
   display: block;
   width: 90%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-swiper-slide:nth-child(2n), swiper-slide:nth-child(3n) {
+
+swiper-slide:nth-child(2n),
+swiper-slide:nth-child(3n) {
   width: 100%;
 }
 
@@ -286,6 +285,7 @@ h2#specific-h2 {
   background-size: cover;
   background-position: center center;
 }
+
 .parallax-container .cloud {
   position: absolute;
   background-repeat: no-repeat;
@@ -293,6 +293,7 @@ h2#specific-h2 {
   transition: transform 0.1s ease-out;
   z-index: 2;
 }
+
 .parallax-container .cloud__top {
   top: 20%; /* Positionne le gros nuage plus haut */
   right: -1100px;
@@ -301,6 +302,7 @@ h2#specific-h2 {
   height: 250px; /* Ajuste la taille des nuages */
   width: 250px; /* Ajuste la taille des nuages */
 }
+
 .parallax-container .cloud__bottom {
   top: 35%; /* Positionne le petit nuage un peu plus bas que le gros nuage */
   right: -1200px;
@@ -326,12 +328,15 @@ h2#specific-h2 {
   gap: 0px;
   position: relative;
 }
+
 .Oscars-nomination-containers-flex .item1 {
   width: 70%;
 }
+
 .Oscars-nomination-containers-flex .item2 {
   width: 30%;
 }
+
 .Oscars-nomination-containers-flex .text-oscar-nomination {
   position: relative;
   color: white !important;
@@ -339,6 +344,7 @@ h2#specific-h2 {
   font-weight: bold !important;
   margin-left: 60px;
 }
+
 .Oscars-nomination-containers-flex .text-oscar-nomination::before {
   content: url(./medias/Sunflower.png);
   position: absolute;
@@ -346,6 +352,7 @@ h2#specific-h2 {
   top: -4em;
   z-index: -1;
 }
+
 .Oscars-nomination-containers-flex .text-oscar-nomination::after {
   content: url(./medias/orchid.png);
   position: absolute;
@@ -353,17 +360,21 @@ h2#specific-h2 {
   top: -6em;
   z-index: -1;
 }
+
 .Oscars-nomination-containers-flex .text-bulle-orange {
   margin-left: 55px;
 }
+
 .Oscars-nomination-containers-flex .image-container {
   position: relative;
   width: 70%;
 }
+
 .Oscars-nomination-containers-flex .img-oscars-short-film {
   width: 90%;
   height: 360px;
 }
+
 .Oscars-nomination-containers-flex .overlay-text {
   position: absolute;
   top: 32%;
@@ -372,6 +383,7 @@ h2#specific-h2 {
   text-align: center;
   z-index: 1;
 }
+
 .Oscars-nomination-containers-flex .img-fleur-blanche {
   position: absolute;
   top: 0%;
@@ -605,4 +617,16 @@ h2#specific-h2 {
   to {
     transform: rotate(360deg);
   }
+} 
+.story__title {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-45px);
+  transition: opacity 3s ease-out, transform 1s ease-out;
+  transition-delay: 0.6s;
+}
+
+.story__title.animate {
+  opacity: 1;
+  transform: translateY(0);
 }/*# sourceMappingURL=style.css.map */
