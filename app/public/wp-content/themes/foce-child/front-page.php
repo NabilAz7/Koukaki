@@ -14,7 +14,7 @@ get_header();
                 <source src="/wp-content/themes/foce-child/medias/video-header.webm" type="video/webm">
 
                 <!-- Image de fallback -->
-                <img src="/wp-content/themes/foce-child/medias/screenshot.png" alt="Image de fallback">
+                <img src="/wp-content/themes/foce-child/medias/image-fallback.png" alt="Image de fallback">
             </video>
         </section>
     </section>

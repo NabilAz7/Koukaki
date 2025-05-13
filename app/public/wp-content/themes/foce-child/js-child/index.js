@@ -14,8 +14,8 @@ window.addEventListener('scroll', () => {
 
       // Déplacement limité à 300px max
       const maxMove = 300;
-      const offsetTop = Math.min(relativeScroll * 0.5, maxMove);
-      const offsetBottom = Math.min(relativeScroll * 0.6, maxMove);
+      const offsetTop = Math.min(relativeScroll * 0.4, maxMove);
+      const offsetBottom = Math.min(relativeScroll * 0.5, maxMove);
 
       cloudTop.style.transform = `translateX(${-offsetTop}px)`;
       cloudBottom.style.transform = `translateX(${-offsetBottom}px)`;
@@ -85,4 +85,28 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   koukakiObserver.observe(koukakiTitle);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Animation pour le titre Story Title
+  const storyTitle = document.querySelector('.story__title');
+
+  const storyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Ajoute la classe 'animate' quand l'élément entre dans la vue
+          storyTitle.classList.add('animate');
+        } else {
+          // Retire la classe 'animate' quand l'élément sort de la vue
+          storyTitle.classList.remove('animate');
+        }
+      });
+    },
+    {
+      threshold: 0.5, // L'élément doit être à 50% visible pour que l'animation soit déclenchée
+    }
+  );
+
+  storyObserver.observe(storyTitle);
 });

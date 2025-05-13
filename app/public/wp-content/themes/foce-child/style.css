@@ -39,9 +39,9 @@ body {
   margin: 20px auto;
 }
 
-@keyframes fadeInDown {
+@keyframes fadeInUp {
   0% {
-    transform: translateY(-120px);
+    transform: translateY(120px);
     opacity: 0;
   }
   100% {
@@ -49,9 +49,9 @@ body {
     opacity: 1;
   }
 }
-@keyframes fadeInUp {
+@keyframes fadeInDown {
   0% {
-    transform: translateY(120px);
+    transform: translateY(-120px);
     opacity: 0;
   }
   100% {
@@ -79,7 +79,7 @@ img.banner__logo.floating {
 .koukaki__titre {
   display: inline-block;
   opacity: 0;
-  transform: translateY(-45px);
+  transform: translateY(45px);
   transition: opacity 3s ease-out, transform 1s ease-out;
   transition-delay: 0.6s;
 }
@@ -283,7 +283,7 @@ h2#specific-h2 {
   position: relative;
   height: 100%;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
 }
 
 .parallax-container .cloud {
@@ -296,7 +296,7 @@ h2#specific-h2 {
 
 .parallax-container .cloud__top {
   top: 20%; /* Positionne le gros nuage plus haut */
-  right: -1100px;
+  right: -80%;
   background-image: url("./medias/big_cloud.png"); /* L'image du gros nuage */
   z-index: 2; /* Assure-toi que le gros nuage est au-dessus du petit nuage */
   height: 250px; /* Ajuste la taille des nuages */
@@ -305,7 +305,7 @@ h2#specific-h2 {
 
 .parallax-container .cloud__bottom {
   top: 35%; /* Positionne le petit nuage un peu plus bas que le gros nuage */
-  right: -1200px;
+  right: -55%;
   background-image: url("./medias/little_cloud.png"); /* L'image du petit nuage */
   z-index: 2; /* Le petit nuage est en dessous du gros nuage */
   height: 200px; /* Ajuste la taille des nuages */
@@ -330,11 +330,11 @@ h2#specific-h2 {
 }
 
 .Oscars-nomination-containers-flex .item1 {
-  width: 70%;
+  width: 80%;
 }
 
 .Oscars-nomination-containers-flex .item2 {
-  width: 30%;
+  width: 20%;
 }
 
 .Oscars-nomination-containers-flex .text-oscar-nomination {
@@ -361,25 +361,21 @@ h2#specific-h2 {
   z-index: -1;
 }
 
-.Oscars-nomination-containers-flex .text-bulle-orange {
-  margin-left: 55px;
-}
-
 .Oscars-nomination-containers-flex .image-container {
   position: relative;
   width: 70%;
+  text-align: center;
 }
 
 .Oscars-nomination-containers-flex .img-oscars-short-film {
-  width: 90%;
-  height: 360px;
+  width: 80%;
+  height: 450px;
 }
 
 .Oscars-nomination-containers-flex .overlay-text {
   position: absolute;
-  top: 32%;
-  left: 40%;
-  transform: translate(-50%, -50%);
+  top: 5%;
+  left: 18%;
   text-align: center;
   z-index: 1;
 }
@@ -403,7 +399,8 @@ h2#specific-h2 {
   line-height: 1.5;
   border: none;
   display: inline-block;
-  top: 6em;
+  top: 5em;
+  left: 6em;
 }
 
 .container-flex {
@@ -621,7 +618,7 @@ h2#specific-h2 {
 .story__title {
   display: inline-block;
   opacity: 0;
-  transform: translateY(-45px);
+  transform: translateY(45px);
   transition: opacity 3s ease-out, transform 1s ease-out;
   transition-delay: 0.6s;
 }
@@ -629,4 +626,184 @@ h2#specific-h2 {
 .story__title.animate {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Style initial : le titre est invisible et décalé en bas */
+@media screen and (max-width: 768px) {
+  .banner__logo {
+    top: 17em;
+    left: -0.5em;
+    width: 60%;
+  }
+  #tigeflower::before {
+    display: none;
+  }
+  #tigeflower::after {
+    display: none;
+  }
+  #studio h2::before {
+    display: none;
+  }
+  .text-oscar-nomination.overlay-text::before {
+    display: none;
+  }
+  #special-h2 {
+    width: 100%;
+    padding: 0%;
+  }
+  .Oscars-nomination-containers-flex .image-container {
+    width: 100%;
+  }
+  span.text-bulle-orange {
+    font-size: 21px;
+    margin: 0%;
+    transform: translate(-190px, 10px);
+  }
+  .Oscars-nomination-containers-flex {
+    flex-direction: column;
+  }
+  .text-bulle-orange {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  .koukaki__titre.animate {
+    transform: translate(-20px, 20px);
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .decor-2,
+  .decor-3,
+  .decor-4,
+  .decor-5,
+  .decor-6,
+  .decor-8,
+  .decor-9 {
+    display: none;
+  }
+  .decor-1 {
+    width: 18em !important;
+    transform: translate(-80px, 20px);
+  }
+  .decor-7 {
+    width: 38em !important;
+    left: 14%;
+    top: 80%;
+  }
+  .decor-10 {
+    left: 45%;
+    top: 95%;
+  }
+  .menu-principal {
+    gap: 10px !important;
+    margin-top: 100px !important;
+    padding: 0% !important;
+  }
+  .banner-video__background {
+    display: none;
+  }
+  .banner-video {
+    background-image: url("/wp-content/themes/foce-child/medias/image-fallback.png");
+    background-size: cover;
+    background-position: center;
+  }
+  .img-oscars-short-film.item1 {
+    height: 380px;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  div.container-flex {
+    padding: 2% !important;
+  }
+  div.item-left {
+    flex: 0.5;
+  }
+  div#menu-toggle.menu-toggle {
+    flex: 0.5;
+  }
+  .cloud {
+    display: none;
+  }
+  #specific-h2 {
+    top: -2.5em;
+    left: -1.3em;
+    position: absolute;
+  }
+  .content {
+    padding: 0% !important;
+  }
+  h3 {
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+  .menu-item-108 {
+    transform: translate(90px, 0px);
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  div.container-flex {
+    padding: 2% !important;
+  }
+  div.item-left {
+    flex: 0.5;
+  }
+  div#menu-toggle.menu-toggle {
+    flex: 0.5;
+  }
+  .banner__logo {
+    top: 10%;
+    left: 14%;
+  }
+  #tigeflower::before {
+    display: none;
+  }
+  #tigeflower::after {
+    display: none;
+  }
+  #studio h2::before {
+    display: none;
+  }
+  .text-oscar-nomination overlay-text {
+    width: 100%;
+  }
+  span.text-bulle-orange {
+    top: 1em;
+    left: -5.5em;
+    position: absolute;
+    width: -moz-max-content;
+    width: max-content;
+    font-size: 25px;
+  }
+  img.img-oscars-short-film.item1 {
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .Oscars-nomination-containers-flex .text-oscar-nomination::before {
+    top: -4em;
+    left: -9em;
+  }
+  .decor-2,
+  .decor-3,
+  .decor-4,
+  .decor-5,
+  .decor-6,
+  .decor-8,
+  .decor-9 {
+    display: none;
+  }
+  .decor-1 {
+    width: 8em !important;
+    top: 17% !important;
+    left: 47% !important;
+    position: absolute !important;
+  }
+  .decor-7 {
+    width: 38em !important;
+    left: 20%;
+    top: 80%;
+  }
+  .decor-10 {
+    left: 45%;
+    top: 95%;
+  }
 }/*# sourceMappingURL=style.css.map */
